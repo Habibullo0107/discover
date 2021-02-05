@@ -26,15 +26,5 @@ namespace Discover
             InitializeComponent();
         }
 
-        private void MainWindow_Closing(object sender, CancelEventArgs e)
-        {
-            e.Cancel = true; // this will prevent to close
-            MessageBox.Show("This just an example");
-        }
-
-        private void Label_MouseMove(object sender, MouseEventArgs e)
-        {
-            MessageBox.Show("Mouse moved");
-        }
     }
 }
