@@ -6,6 +6,7 @@ namespace Discover.Models
 {
     public class Javob
     {
+
         public Guid Guid { get; set; }
 
         public Guid TestId { get; set; }
