@@ -6,6 +6,7 @@ using System.Windows;
 
 namespace Discover.ViewModels
 {
+
     public class MenuViewModel
     {
         public MainContext Context { get; set; }
