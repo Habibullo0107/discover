@@ -6,7 +6,7 @@ using System.Windows;
 
 namespace Discover.ViewModels
 {
-    public class MenuViewModel : INotifyPropertyChanged
+    public class MenuViewModel
     {
         public MainContext Context { get; set; }
 
@@ -31,6 +31,7 @@ namespace Discover.ViewModels
                 subject = value;
             }
         }
+
 
         public List<Mavzu> Mavzuho { get; set; }
     }
