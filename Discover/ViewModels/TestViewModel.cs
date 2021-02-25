@@ -1,20 +1,22 @@
-﻿using System;
+﻿using Caliburn.Micro;
+using Discover.Models;
+using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Discover.ViewModels
 {
-    class TestViewModel
+    public class TestViewModel : Conductor<object>
     {
-     
-
-        public TestViewModel()
+        Topic topic;
+        List<Question> questions;
+        public Topic Topic
         {
-            
+            get { return topic; }
+            set
+            {
+                topic = value;
+                NotifyOfPropertyChange(nameof(Topic));
+            }
         }
-
-
-
-
     }
 }

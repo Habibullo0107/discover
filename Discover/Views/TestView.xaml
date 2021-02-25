@@ -1,28 +1,36 @@
-﻿<Window x:Class="Discover.Views.TestView"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Discover.Views"
-        mc:Ignorable="d"
-        Title="TestView" Height="600" Width="1000">
-
-    <Grid>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="23*"/>
-            <RowDefinition Height="244*"/>
-            <RowDefinition Height="25*"/>
-        </Grid.RowDefinitions>
-        
-        
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-
-        </Grid.ColumnDefinitions>
-        <Label Content="номи мавзуъ" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Height="48" Width="188" />
-        <Button Content="OK" HorizontalAlignment="Right" Margin="5,5,5,5" Grid.Row="2" Width="100" Height="40" />
-    </Grid>
-
-
-</Window>
+﻿<UserControl
+    x:Class="Discover.Views.TestView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Discover.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:Discover.ViewModels"
+    d:DataContext="{d:DesignInstance Type=viewmodels:TestViewModel}"
+    mc:Ignorable="d">
+    <materialDesign:Card
+        Padding="8"
+        Background="#FFFFFDE7"
+        Foreground="Green">
+        <ListView ItemsSource="{Binding Topic.Questions}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel HorizontalAlignment="Stretch">
+                        <TextBlock Text="{Binding QuestionText}" />
+                        <ListBox ItemsSource="{Binding Variants}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <RadioButton
+                                        Content="{Binding VariantText}"
+                                        IsChecked="{Binding VariantA.IsSelected}"
+                                        Style="{DynamicResource MaterialDesignUserForegroundRadioButton}" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListView>
+    </materialDesign:Card>
+</UserControl>

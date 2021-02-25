@@ -18,17 +18,12 @@ namespace Discover.ViewModels
         {
             Context = new MainContext();
             Subjects = Context.GetEntities<Subject>().ToList();
-          
+            TestViewModel = new TestViewModel();
+            ActiveItem = TestViewModel;
         }
 
         public List<Subject> Subjects { get; set; }
-
-    
-
         Subject subject;
-
-     
-
         public Subject SelectedSubject
         {
             get
@@ -37,13 +32,47 @@ namespace Discover.ViewModels
             }
             set
             {
-                Topics = Context.GetEntities<Topic>().Where(s => s.SubjectId == value.Guid).ToList();
                 subject = value;
                 NotifyOfPropertyChange(nameof(SelectedSubject));
             }
         }
 
-       
+        Topic topic;
+        public Topic SelectedTopic
+        {
+            get
+            {
+                return topic;
+            }
+            set
+            {
+                topic = value;
+                TestViewModel.Topic = value;
+                NotifyOfPropertyChange(nameof(SelectedTopic));
+            }
+        }
+
+        object selectedTreeViewItem;
+        public object SelectedTreeViewItem
+        {
+            get
+            {
+                return selectedTreeViewItem;
+            }
+            set
+            {
+                if (value is Subject subject)
+                {
+                    SelectedSubject = subject;
+                }
+                else if (value is Topic topic)
+                {
+                    //TODO set selected topic
+                    SelectedTopic = topic;
+                }
+                selectedTreeViewItem = value;
+            }
+        }
 
         List<Topic> topics;
         public List<Topic> Topics
@@ -57,6 +86,17 @@ namespace Discover.ViewModels
                 topics = value;
                 NotifyOfPropertyChange(nameof(Topics));
             }
+        }
+
+
+        TestViewModel testViewModel;
+        public TestViewModel TestViewModel
+        {
+            get
+            {
+                return testViewModel;
+            }
+            set { testViewModel = value; NotifyOfPropertyChange(nameof(TestViewModel)); }
         }
     }
 }

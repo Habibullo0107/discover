@@ -22,7 +22,7 @@ namespace Discover.ViewModels
             {
                 var userExists = context.GetEntities<User>().Any(s => s.Login == LoginText && s.Password == PasswordText);
 
-                if (true)
+                if (userExists)
                 {
                     NavigationHelper.OpenWindow<MenuViewModel>();
                     TryClose();
