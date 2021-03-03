@@ -9,7 +9,7 @@ namespace Discover.Models
     {
         public Answer()
         { 
-                
+                                    
             
         }
         public Guid Guid { get; set; }
