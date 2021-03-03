@@ -86,9 +86,11 @@
                     </DockPanel>
                 </materialDesign:ColorZone>
                 <ContentControl  x:Name="ActiveItem" />
+                <Button Content="1" Width="50" Height="80"/>
             </DockPanel>
-
+            
         </materialDesign:DrawerHost>
 
     </materialDesign:DialogHost>
+    
 </Window>

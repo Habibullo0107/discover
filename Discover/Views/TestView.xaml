@@ -23,6 +23,7 @@
                                 <DataTemplate>
                                     <RadioButton
                                         Content="{Binding VariantText}"
+                                        GroupName="{Binding QuestionId}"
                                         IsChecked="{Binding VariantA.IsSelected}"
                                         Style="{DynamicResource MaterialDesignUserForegroundRadioButton}" />
                                 </DataTemplate>

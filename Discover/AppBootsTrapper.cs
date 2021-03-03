@@ -16,7 +16,7 @@ namespace Discover
 
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
-            DisplayRootViewFor<MenuViewModel>();
+            DisplayRootViewFor<LoginViewModel>();
         }
     }
 }

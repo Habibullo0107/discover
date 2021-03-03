@@ -118,8 +118,7 @@ namespace Discover.Models
 
             var question4 = new Question() { Guid = Guid.NewGuid(), QuestionText = "Укажите слово, в котором есть мягкий согласный звук.", Topic = topic2Sintaksis };
 
-            var variantA4 = new Variant() { Guid = Guid.NewGuid(), IsCorrect = true, Question = question4, VariantText = "Мощь" };
-            Add(variantA4);
+             Add(new Variant() { Guid = Guid.NewGuid(), IsCorrect = true, Question = question4, VariantText = "Мощь" });
 
             var variantB4 = new Variant() { Guid = Guid.NewGuid(), IsCorrect = false, Question = question4, VariantText = "Блажь" };
             Add(variantB4);
@@ -217,6 +216,35 @@ namespace Discover.Models
             #endregion
             #endregion
 
+            #region English Subject
+
+            var subjectEnglish = new Subject() { Guid = Guid.NewGuid(), Name = "Английский язый" };
+            #region topic1 Travel
+            var topic4Travel = new Topic() { Guid = Guid.NewGuid(), Name = "Travel", Subject = subjectEnglish };
+            #region s9
+            var question9 = new Question() { Guid = Guid.NewGuid(), QuestionText = "Choose the appropriate verb. (Выберите подходящий по смыслу глагол.) \n  The father often ... kectures in universities. ", Topic = topic4Travel };
+
+            var variantA9 = new Variant() { Guid = Guid.NewGuid(), IsCorrect = true, Question = question9, VariantText = "gives" };
+            Add(variantA9);
+
+            var variantB9 = new Variant() { Guid = Guid.NewGuid(), IsCorrect = false, Question = question9, VariantText = "takes" };
+            Add(variantB9);
+
+            var variantC9 = new Variant() { Guid = Guid.NewGuid(), IsCorrect = false, Question = question9, VariantText = "invites" };
+            Add(variantC9);
+
+            var variantD9 = new Variant() { Guid = Guid.NewGuid(), IsCorrect = false, Question = question9, VariantText = "passes" };
+            Add(variantD9);
+
+
+            var javobA9 = new Answer() { Guid = Guid.NewGuid(), IsCorrect = true, Question = question9, Variant = variantC, User = user };
+            Add(javobA9);
+            #endregion
+
+
+            #endregion
+            #endregion
+
 
 
 
@@ -225,7 +253,7 @@ namespace Discover.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("DataSource=TestDB11.db");
+            optionsBuilder.UseSqlite("DataSource=TestDB14.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

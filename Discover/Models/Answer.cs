@@ -1,11 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Discover.Models
 {
     public class Answer
     {
+        public Answer()
+        { 
+                
+            
+        }
         public Guid Guid { get; set; }
 
         public Guid UserId { get; set; }
